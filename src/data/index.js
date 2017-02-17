@@ -14,15 +14,24 @@ const videoB = {
 
 const videos = [videoA, videoB];
 const getVideoById = (id) => new Promise((resolve) => {
-	console.log(videos);
 	const [video] = videos.filter((xxx) => {
-		console.log(xxx.id, id);
 		return xxx.id === id;
 	});
 	resolve(video);
 });
 
 const getVideos = () => new Promise((resolve) => resolve(videos));
+const createVideo = ({title, duration, release}) => {
+	const video = {
+		id: (new Buffer(title, 'utf8')).toString('base64'),
+		title,
+		duration,
+		release
+	};
+	videos.push(video);
+	return video;
+};
 
 exports.getVideoById = getVideoById;
 exports.getVideos = getVideos;
+exports.createVideo = createVideo;

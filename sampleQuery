@@ -1,0 +1,14 @@
+{
+  videos {
+    id
+    title 
+  }
+}
+
+
+mutation M {
+  createVideo(title: "Foo", duration: 300, released: false){
+    id,
+    title
+  }
+}
