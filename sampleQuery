@@ -12,3 +12,51 @@ mutation M {
     title
   }
 }
+
+{
+  node(id: "VmlkZW86MQ==") {
+    ... on Video {
+      title
+    }
+  }
+}
+
+{
+  videos {
+    edges {
+      node {
+        id,
+        title,
+        duration
+      }
+    }
+  }
+}
+
+
+mutation AddVideoQuery($input: AddVideoInput!) {
+  createVideo(input: $input) {
+    video {
+      title
+    }
+  }
+}
+
+query AllVideosQuery {
+  videos {
+    edges {
+      node {
+        title
+      }
+    }
+  }
+}
+
+{
+  "input": {
+    "title": "Video Title",
+    "duration": 300,
+    "released": false,
+    "clientMutationId": "asdx"
+  }
+}

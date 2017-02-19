@@ -12,7 +12,28 @@ const videoB = {
 	watched:  false
 };
 
-const videos = [videoA, videoB];
+const videoC = {
+	id: 'xx',
+	title: 'Lorem',
+	duration:  300,
+	watched:  true
+};
+
+const videoD = {
+	id: 'dklf',
+	title: 'Ipsum',
+	duration:  200,
+	watched:  false
+};
+
+const videoE = {
+	id: 'asdw',
+	title: 'Dolor',
+	duration:  400,
+	watched:  true
+};
+
+const videos = [videoA, videoB, videoC, videoD, videoE];
 const getVideoById = (id) => new Promise((resolve) => {
 	const [video] = videos.filter((xxx) => {
 		return xxx.id === id;
@@ -32,6 +53,14 @@ const createVideo = ({title, duration, release}) => {
 	return video;
 };
 
+const getObjectById = (type, id) => {
+	const types = {
+		video: getVideoById
+	};
+	return types[type](id);
+}
+
 exports.getVideoById = getVideoById;
 exports.getVideos = getVideos;
 exports.createVideo = createVideo;
+exports.getObjectById = getObjectById;
