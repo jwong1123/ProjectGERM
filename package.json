@@ -2,6 +2,11 @@
   "name": "projectGerm",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "repository": {},
   "license": "MIT",
   "dependencies": {
@@ -9,5 +14,8 @@
     "express-graphql": "^0.6.3",
     "graphql": "^0.9.1",
     "graphql-relay": "^0.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
